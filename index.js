@@ -19,7 +19,7 @@ async function getAccessToken() {
   token = response.data.access_token;
 }
 
-app.get("/flights", async (req, res) => {
+app.get("/", async (req, res) => {
   const { from, to, date } = req.query;
 
   if (!token) await getAccessToken();
