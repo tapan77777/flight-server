@@ -40,8 +40,9 @@ app.get("/", async (req, res) => {
 
     res.json(response.data);
   } catch (err) {
-    console.error(err.response?.data || err.message);
-    res.status(500).json({ error: "Error fetching flights" });
+    console.error("❌ Amadeus API Error:", err.response?.data || err.message);
+res.status(500).json({ error: err.response?.data || err.message });
+
   }
 });
 
